@@ -1,0 +1,19 @@
+Master data
+-	Student names
+-	Matric number
+-	Gender
+-	Subjects and scores [subject names, scores, academic year]
+-	Year of admission
+-	Graduated year..
+-	School name
+-	School code
+Subjects and scores properties
+Year x
+	Semester a
+-	Subject name
+-	Subject code (if any)
+-	Grade
+Semester b
+-	Subject name
+-	Subject code (if any)
+-	Grade
