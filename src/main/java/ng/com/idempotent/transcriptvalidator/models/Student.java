@@ -28,8 +28,6 @@ public class Student {
     private Gender gender;    
     private int yearOfAdmission;
     private int graduatingYear;
-    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)    
-    private List<Course> courses;
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private School school;    
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
@@ -105,20 +103,6 @@ public class Student {
      */
     public void setGraduatingYear(int graduatingYear) {
         this.graduatingYear = graduatingYear;
-    }
-
-    /**
-     * @return List<Course> return the courses
-     */
-    public List<Course> getCourses() {
-        return courses;
-    }
-
-    /**
-     * @param courses the courses to set
-     */
-    public void setCourses(List<Course> courses) {
-        this.courses = courses;
     }
 
     /**

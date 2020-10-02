@@ -1,26 +1,9 @@
-package ng.com.idempotent.transcriptvalidator.models;
+package ng.com.idempotent.transcriptvalidator.requestobjects;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
-import javax.persistence.ManyToOne;
-import javax.persistence.Table;
+import ng.com.idempotent.transcriptvalidator.models.Course.Status;
 
-@Entity(name = "course")
-@Table(name = "course")
-public class Course {
-    public static enum Status {
-        PASS, FAIL, CARRY_OVER, RE_WRITE_PASS, REWRITE_FAIL
-    }
-
-    @Id
-    @GeneratedValue
-    private long id;
-    @Column(name = "course_name")
+public class CourseRequestObject {
     private String courseName;
-    @Column(name = "course_code")
     private String courseCode;
     private int year;
     private String semester;  
@@ -30,9 +13,8 @@ public class Course {
     private int creditUnit;
     private int cummulativePoint;
     private double gradePointAverage;    
-    private Status status;
-    @ManyToOne(optional = false, cascade = CascadeType.ALL)
-    private Student student;
+    private Status status;    
+    private long studentId;
 
     /**
      * @return String return the courseName
@@ -118,7 +100,6 @@ public class Course {
         this.grade = grade;
     }
 
-
     /**
      * @return int return the gradePoint
      */
@@ -175,22 +156,6 @@ public class Course {
         this.gradePointAverage = gradePointAverage;
     }
 
-
-    /**
-     * @return long return the id
-     */
-    public long getId() {
-        return id;
-    }
-
-    /**
-     * @param id the id to set
-     */
-    public void setId(long id) {
-        this.id = id;
-    }
-
-
     /**
      * @return Status return the status
      */
@@ -205,19 +170,18 @@ public class Course {
         this.status = status;
     }
 
-
     /**
-     * @return Student return the student
+     * @return long return the studentId
      */
-    public Student getStudent() {
-        return student;
+    public long getStudentId() {
+        return studentId;
     }
 
     /**
-     * @param student the student to set
+     * @param studentId the studentId to set
      */
-    public void setStudent(Student student) {
-        this.student = student;
+    public void setStudentId(long studentId) {
+        this.studentId = studentId;
     }
 
 }

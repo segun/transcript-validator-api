@@ -13,11 +13,8 @@ public class CustomDepartmentRepositoryImpl implements CustomDepartmentRepositor
 
     @Override
     public Department finDepartment(long facultyId, String departmentName, String departmentCode) {
-        String sql = "SELECT * FROM department d "
-            + "INNER JOIN faculty f ON d.faculty_id = f.id "
-            + "WHERE d.department_name = :dn "
-            + "AND d.department_code = :dc "
-            + "AND f.id = :fid";
+        String sql = "SELECT * FROM department d " + "INNER JOIN faculty f ON d.faculty_id = f.id "
+                + "WHERE d.department_name = :dn " + "AND d.department_code = :dc " + "AND f.id = :fid";
         Query query = entityManager.createNativeQuery(sql, Department.class);
         query.setParameter("dn", departmentName);
         query.setParameter("dc", departmentCode);
