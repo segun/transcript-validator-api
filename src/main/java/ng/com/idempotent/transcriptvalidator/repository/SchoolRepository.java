@@ -8,5 +8,5 @@ import ng.com.idempotent.transcriptvalidator.models.School;
 
 public interface SchoolRepository extends JpaRepository<School, Long> {
     List<School> findBySchoolName(String schoolName);
-    List<School> findBySchoolCode(String schoolCode);
+    List<School> findBySchoolCode(String schoolCode);    
 }

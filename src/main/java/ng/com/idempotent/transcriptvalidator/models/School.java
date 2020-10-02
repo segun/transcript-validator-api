@@ -1,17 +1,21 @@
 package ng.com.idempotent.transcriptvalidator.models;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.validation.constraints.NotEmpty;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity(name = "school")
+@Table(name = "school", uniqueConstraints = {@UniqueConstraint(columnNames = {"school_name", "school_code"})})
 public class School {
     @Id
     @GeneratedValue
     private long id;
-    @NotEmpty(message = "School name can not be empty")
+    @Column(name = "school_name")
     private String schoolName;
+    @Column(name = "school_code")
     private String schoolCode;
 
     /**

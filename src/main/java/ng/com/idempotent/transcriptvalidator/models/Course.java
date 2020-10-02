@@ -3,9 +3,15 @@ package ng.com.idempotent.transcriptvalidator.models;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.Table;
 
 @Entity(name = "course")
+@Table(name = "course")
 public class Course {
+    public static enum Status {
+        PASS, FAIL, CARRY_OVER, RE_WRITE_PASS, REWRITE_FAIL
+    }
+
     @Id
     @GeneratedValue
     private long id;
@@ -19,6 +25,7 @@ public class Course {
     private int creditUnit;
     private int cummulativePoint;
     private double gradePointAverage;    
+    private Status status;
 
     /**
      * @return String return the courseName
@@ -174,6 +181,21 @@ public class Course {
      */
     public void setId(long id) {
         this.id = id;
+    }
+
+
+    /**
+     * @return Status return the status
+     */
+    public Status getStatus() {
+        return status;
+    }
+
+    /**
+     * @param status the status to set
+     */
+    public void setStatus(Status status) {
+        this.status = status;
     }
 
 }

@@ -25,7 +25,6 @@ public class FacultyService {
 
     public Faculty saveFaculty(FacultyRequestObject fro) throws AlreadyExistsException {
         Faculty exists = null;
-        logger.info("Faculty: " + fro.getFacultyName() + ", " + fro.getFacultyCode() + ", " + fro.getSchoolId());
         try {
             exists = getFaculty(fro.getSchoolId(), fro.getFacultyName(), fro.getFacultyCode());
         } catch (Exception e) {

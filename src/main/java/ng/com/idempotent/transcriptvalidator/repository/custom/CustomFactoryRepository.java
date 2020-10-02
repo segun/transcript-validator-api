@@ -1,4 +1,4 @@
-package ng.com.idempotent.transcriptvalidator.repository;
+package ng.com.idempotent.transcriptvalidator.repository.custom;
 
 import ng.com.idempotent.transcriptvalidator.models.Faculty;
 

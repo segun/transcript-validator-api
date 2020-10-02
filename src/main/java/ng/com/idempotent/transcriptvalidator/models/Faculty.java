@@ -1,17 +1,23 @@
 package ng.com.idempotent.transcriptvalidator.models;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity(name = "faculty")
+@Table(name = "faculty", uniqueConstraints = {@UniqueConstraint(columnNames = {"faculty_name", "faculty_code", "school_id"})})
 public class Faculty {
     @Id
     @GeneratedValue
     private long id;
+    @Column(name = "faculty_name")
     private String facultyName;
+    @Column(name = "faculty_code")
     private String facultyCode;
     @ManyToOne(cascade = CascadeType.ALL, optional = false)
     private School school;

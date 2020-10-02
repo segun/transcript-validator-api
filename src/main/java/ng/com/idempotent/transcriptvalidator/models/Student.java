@@ -3,22 +3,27 @@ package ng.com.idempotent.transcriptvalidator.models;
 import java.util.List;
 
 import javax.persistence.CascadeType;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import javax.persistence.UniqueConstraint;
 
 @Entity(name = "student")
+@Table(name = "student", uniqueConstraints = {@UniqueConstraint(columnNames = "matric_number")})
 public class Student {
-    private enum Gender {
+    public static enum Gender {
         MALE, FEMALE, OTHERS
     }
     @Id
     @GeneratedValue
     private long id;
     private String studentName;    
+    @Column(name = "matric_number")
     private String matricNumber;
     private Gender gender;    
     private int yearOfAdmission;
@@ -29,7 +34,9 @@ public class Student {
     private School school;    
     @ManyToOne(optional = false, cascade = CascadeType.ALL)
     private Department department;    
-
+    @ManyToOne(optional = false, cascade = CascadeType.ALL)
+    private Faculty faculty;
+    
     /**
      * @return String return the studentName
      */
@@ -155,6 +162,21 @@ public class Student {
      */
     public void setDepartment(Department department) {
         this.department = department;
+    }
+
+
+    /**
+     * @return Faculty return the faculty
+     */
+    public Faculty getFaculty() {
+        return faculty;
+    }
+
+    /**
+     * @param faculty the faculty to set
+     */
+    public void setFaculty(Faculty faculty) {
+        this.faculty = faculty;
     }
 
 }

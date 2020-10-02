@@ -2,7 +2,6 @@ package ng.com.idempotent.transcriptvalidator.api;
 
 import java.util.List;
 
-import javax.validation.Valid;
 import javax.ws.rs.core.MediaType;
 
 import org.springframework.beans.factory.annotation.Autowired;
