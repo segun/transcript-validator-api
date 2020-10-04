@@ -43,7 +43,7 @@ public class SchoolControllerTests {
         List<School> schools = (List<School>) testRestTemplate.getForObject(url, List.class);
         System.out.println(schools);
         assertFalse(schools.isEmpty());
-        assertTrue(schools.size() == 10);
+        assertTrue(schools.size() >= 10);
     }
 
     @Test
