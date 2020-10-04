@@ -38,7 +38,7 @@ public class CourseController {
         return new ResponseEntity<>(courseRepository.findAll(), HttpStatus.OK);       
     }
 
-    @GetMapping(path = "/course/{studentId}", produces = { MediaType.APPLICATION_JSON })
+    @GetMapping(path = "/courses/{studentId}", produces = { MediaType.APPLICATION_JSON })
     public ResponseEntity<List<Course>> getStudentCourses(@PathVariable("studentId") long studentId) {
         return new ResponseEntity<>(courseRepository.findCoursesByStudentId(studentId), HttpStatus.OK);
     }

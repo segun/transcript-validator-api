@@ -130,7 +130,7 @@ public class CourseControllerTests {
             assertEquals(c.getYear(), cro.getYear());
         }
 
-        url = "http://localhost:" + port + "/course/" + studentId;
+        url = "http://localhost:" + port + "/courses/" + studentId;
         List<Course> courses = testRestTemplate.getForObject(url, List.class);
         assertFalse(courses.isEmpty());
         System.out.println(courses);
